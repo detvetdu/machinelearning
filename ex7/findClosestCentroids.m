@@ -22,7 +22,7 @@ idx = zeros(size(X,1), 1);
 %
 m = size(X,1);
 c = zeros(m,K);
-my = zeros(1,4)
+my = zeros(1,4);
 % size(centroids)
  for i=1:m
     for k=1:K
