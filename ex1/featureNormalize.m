@@ -24,10 +24,15 @@ sigma = zeros(1, size(X, 2));
 %               each feature. 
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
-%       
+%
+% räkna ut medelvärdet för varje feature
+mu = mean(X);
 
+% räkna ut standardavvikelsen för vare feature
+sigma = std(X);
 
-
+% per rad i datasettet, normalisera varje feature
+X_norm = (X - mu)  ./ sigma;
 
 
 
