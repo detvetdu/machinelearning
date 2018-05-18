@@ -105,6 +105,7 @@ fprintf('\n');
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
 price = 0; % You should change this
+house = [1650 3]
 
 
 % ============================================================
