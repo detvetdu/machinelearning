@@ -20,10 +20,17 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
-
-
-
-
+size(X);
+m = size(X,1);
+X(1,:)
+DIST = zeros(1,K);
+for i=1:m
+    for k=1:K
+        dist = abs(X(i,:) - centroids(k,:));
+        DIST(:,k) = dist*dist';
+    end
+    [value, idx(i,:)] = min(DIST);
+ end
 
 
 

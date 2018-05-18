@@ -13,10 +13,9 @@ centroids = zeros(K, size(X, 2));
 %               the dataset X
 %
 
+centIndex = randperm(size(X),K);
 
-
-
-
+centroids = X(centIndex,:);
 
 
 
