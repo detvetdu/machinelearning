@@ -31,10 +31,14 @@ X = [ones(m, 1) X];
 %       
 
 
+% num_labels
+% all_theta
+% X
 
+predict = sigmoid(X * all_theta');
 
-
-
+[predict_max, index_max] = max(predict, [], 2);
+p = index_max;
 
 % =========================================================================
 
