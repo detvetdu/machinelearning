@@ -20,9 +20,22 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+% -1/m [SUM(yi * log(h(xi))) + (1-y(i))*log(1 - h(xi))]
+% theta
+% X
+% y
+% X*theta
+h = sigmoid(X*theta);
 
+% y'*log(sigmoid(X*theta))
+% (1-y)'*log(1 - sigmoid(X*theta))
+% (1-y)
+J = 1/m * ((-y' * log(h)) - ((1-y)' * log(1 - h)));
 
-
+% gradient = (1/m) * SUM((h(xi)-yi) * xi)
+% vectorized implementation
+% gradient = theta - (1/m) * Xtranspose * (g(X*theta) - y)
+grad = (1/m) * X' * (h-y);
 
 
 
