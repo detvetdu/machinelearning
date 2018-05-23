@@ -20,14 +20,22 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+% Theta1
+% a = g(z)
+% z_j+1 = theta_j * a_j
+A1 = [ones(m, 1) X];
+Z2 = A1 * Theta1';
 
 
+% lägg till bias och räkna
+A2 = [ones(size(Z2), 1) sigmoid(Z2)];
+% Theta2
 
+Z3 = A2 * Theta2';
+A3 = sigmoid(Z3);
 
-
-
-
-
+[pred_max, idx_max] = max(A3, [], 2);
+p = idx_max;
 
 % =========================================================================
 
