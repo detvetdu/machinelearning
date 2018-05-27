@@ -13,9 +13,11 @@ g = zeros(size(z));
 %               each value of z (z can be a matrix, vector or scalar).
 
 
+% från 2.1 ex4.pdf
+% g'(z) = g(z) * (1 - g(z))
 
-
-
+gz = sigmoid(z);
+g = gz .* (1 - gz);
 
 
 
