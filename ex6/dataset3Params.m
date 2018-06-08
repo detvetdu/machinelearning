@@ -28,15 +28,15 @@ sigma = 0.3;
 %Xval(1:10,:)
 %yval(1:10)
 
-testValues = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30]
+testValues = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
 
-
-for c = 1:length(testValues)
-    for s = 1:length(testValues)
+testResult = zeros(length(testValues):length(testValues));
+for c = 1:length(testValues),
+    for s = 1:length(testValues),
     % SVMTRAIN(X, Y, C, kernelFunction, tol, max_passes) från help svmTrain
         trainedModel = svmTrain(X,y, testValues(c), @(x1, x2) gaussianKernel(x1, x2, testValues(s)));
         %pred = SVMPREDICT(model, X) från help svmPredict
-        testPrediction = svmPredict(trainedModel, X);
+        testPrediction = svmPredict(trainedModel, Xval);
         %mean(double(predictions ~= yval)) från ex6.pdf sid 9
         testResult(c,s) = mean(double(testPrediction ~= yval));
     end
